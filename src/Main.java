@@ -2,6 +2,7 @@ public class Main {
     public static void main(String[] args) {
         AudioPlayer player = new AudioPlayer();
 
+        // Testes de reprodução de arquivos com diferentes formatos
         System.out.println("==== Testes de reprodução ====");
         player.play("mp3", "musica_boa.mp3");
         player.play("mp4", "video_clipe.mp4");
