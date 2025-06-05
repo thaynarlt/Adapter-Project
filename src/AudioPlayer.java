@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class AudioPlayer implements MediaPlayer {
     private MediaAdapter mediaAdapter;
 
@@ -23,10 +25,11 @@ public class AudioPlayer implements MediaPlayer {
             // O else original que usava o adapter para qualquer coisa não mp3 foi refinado acima
 
         // Tratamento de exceções para formatos não suportados
-        } catch (IllegalArgumentException e) {
+        } catch (NullPointerException | IllegalArgumentException e) {
             System.err.println("ERRO: " + e.getMessage());
         } catch (Exception e) {
             System.err.println("Erro inesperado ao tocar o arquivo: " + e.getMessage());
         }
     }
+
 }
