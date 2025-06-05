@@ -4,12 +4,13 @@ public class AudioPlayer implements MediaPlayer {
     @Override
     public void play(String audioType, String fileName) {
         try {
-            // Verifica se o tipo de áudio é nulo ou vazio
+            // Verificação explícita de nulo
+            Objects.requireNonNull(audioType, "ERRO: O tipo de áudio não pode ser nulo.");
+
+            // Validação do formato suportado
             if (!SupportedFormats.isValidFormat(audioType)) {
-                // Lança uma exceção se o formato não for suportado
                 throw new IllegalArgumentException("ERRO: Formato de áudio não suportado: " + audioType);
             }
-
             // Lógica nativa para MP3
             if (audioType.equalsIgnoreCase("mp3")) {
                 System.out.println("-> Tocando MP3: " + fileName);
